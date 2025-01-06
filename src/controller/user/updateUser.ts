@@ -31,7 +31,7 @@ const updateUser = async (req: Request, res: Response): Promise<void> => {
     const id = res.locals.id;
 
     try {
-        const user = await User.findByIdAndUpdate(id, body, { new: true }).select('name email about socials')
+        const user: IUser = await User.findByIdAndUpdate(id, body, { new: true }).select('name email about socials')
 
         if (!user) {
             res.status(404).json({
