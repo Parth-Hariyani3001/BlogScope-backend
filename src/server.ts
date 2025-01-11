@@ -4,6 +4,7 @@ import dotenv from "dotenv"
 import connectDB from "./db";
 
 import userRouter from "./routes/userRouter"
+import blogRouter from "./routes/blogRouter"
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ connectDB(process.env.DB_URL || "")
 
 // routes
 app.use('/api/v1/user', userRouter)
+app.use('/api/v1/blog', blogRouter)
 
 app.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${process.env.PORT}`)

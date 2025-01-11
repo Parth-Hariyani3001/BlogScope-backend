@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import z from "zod"
 import User, { IUser } from "./../../models/user"
-import mongoose, { ObjectId } from "mongoose";
 
 const deleteBodySchema = z.object({
     id: z.string()

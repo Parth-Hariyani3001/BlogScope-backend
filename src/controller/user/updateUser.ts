@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import z from "zod"
 import User, { IUser } from "./../../models/user"
 
-const updateBodySchema = z.object({
+const updateUserBodySchema = z.object({
     name: z.string().optional(),
     about: z.string().optional(),
     email: z.string().optional(),
@@ -19,7 +19,7 @@ const updateUser = async (req: Request, res: Response): Promise<void> => {
         return;
     }
 
-    const { success } = updateBodySchema.safeParse(body);
+    const { success } = updateUserBodySchema.safeParse(body);
 
     if (!success) {
         res.status(400).json({
